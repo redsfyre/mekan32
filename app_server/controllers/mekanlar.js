@@ -1,11 +1,12 @@
 
 const anaSayfa=function(req, res, next) {
-  res.render('mekanlar-liste', 
+  res.render('mekanlar-liste',
              { 'baslik': 'Anasayfa',
                'sayfaBaslik':{
                    'siteAd': 'Mekan32',
                    'aciklama': 'Isparta civarindaki mekanlari kesfedin'
                },
+                    'footer': 'Yasin İsa YILDIRIM',
                     'mekanlar': [
                         {
                             'ad':'Starbucks',
@@ -19,38 +20,38 @@ const anaSayfa=function(req, res, next) {
                             'adres':'SDU Doğu Kampüsü',
                             'puan':2,
                             'imkanlar':['Kahve','Çay','Pasta'],
-                            'mesafe':'1km'                            
+                            'mesafe':'1km'
                         },
-             
+
                         {
                             'ad':'Kahve Dünyası',
                             'adres':'İyaş',
                             'puan':4,
                             'imkanlar':['Kahve','Çay'],
-                            'mesafe':'8km'                            
+                            'mesafe':'8km'
                         },
                         {
                             'ad':'MC Donalds',
                             'adres':'İyaş',
                             'puan':4,
                             'imkanlar':['Kahve','Çay','Pasta','Burger','patates'],
-                            'mesafe':'8km'                            
+                            'mesafe':'8km'
                         },
                         {
                             'ad':'Burger King',
                             'adres':'İyaş',
                             'puan':3,
                             'imkanlar':['Kahve','Çay','Kola','Burger','Patates'],
-                            'mesafe':'8km'                            
+                            'mesafe':'8km'
                         },
 
                     ]
-             
+
             });
 }
 
 const mekanBilgisi=function(req, res, next) {
-  res.render('mekan-detay', { 
+  res.render('mekan-detay', {
       'baslik': 'Mekan Bilgisi',
       'sayfaBaslik': 'Starbucks',
       'mekanBilgisi':{
@@ -73,11 +74,11 @@ const mekanBilgisi=function(req, res, next) {
                     'gunler':'Cumartesi',
                     'acilis':'9:00',
                     'kapanis':'22:30',
-                    'kapali':false                    
+                    'kapali':false
                },
                {
                     'gunler':'Pazar',
-                    'kapali':true                  
+                    'kapali':true
                }
            ],
            'yorumlar':[
@@ -88,8 +89,8 @@ const mekanBilgisi=function(req, res, next) {
                    'yorumMetni': 'Kahveleri çok güzel, öneririm'
             }
         ]
-        
-          
+
+
     }
 });
 }
