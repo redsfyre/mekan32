@@ -54,6 +54,7 @@ const mekanBilgisi=function(req, res, next) {
   res.render('mekan-detay', {
       'baslik': 'Mekan Bilgisi',
       'sayfaBaslik': 'Starbucks',
+      'footer': 'Yasin İsa YILDIRIM',
       'mekanBilgisi':{
           'ad':'Starbucks',
           'adres':'Centrum Garden',
