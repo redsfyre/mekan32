@@ -1,4 +1,3 @@
-
 const anaSayfa=function(req, res, next) {
   res.render('mekanlar-liste',
              { 'baslik': 'Anasayfa',
