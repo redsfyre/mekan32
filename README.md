@@ -1,5 +1,6 @@
 # mekan32
 
-https://img.shields.io/travis/redsfyre/mekan32?style=plastic
+[![Build Status](https://travis-ci.org/redsfyre/mekan32.svg?branch=master)](https://travis-ci.org/redsfyre/mekan32)
+
 
 Web Teknolojileri dersine ait pojelerin barındığı repo
