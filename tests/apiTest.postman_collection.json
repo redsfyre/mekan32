@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "762ee247-6ce0-415c-a23b-d709c5c3a917",
+		"name": "Yasin İsa YILDIRIM API Testi Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mekan Ekle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"mekanid\", jsonData._id);",
+							"pm.test(\"Durum Kodu: 201\", function(){pm.response.to.have.status(201);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ad",
+							"value": "Starbucks",
+							"type": "text"
+						},
+						{
+							"key": "adres",
+							"value": "İyaş Park AVM",
+							"type": "text"
+						},
+						{
+							"key": "imkanlar",
+							"value": "Kahve",
+							"type": "text"
+						},
+						{
+							"key": "enlem",
+							"value": "37.781885",
+							"type": "text"
+						},
+						{
+							"key": "boylam",
+							"value": "30.566034",
+							"type": "text"
+						},
+						{
+							"key": "gunler1",
+							"value": "Pazartesi-Cuma",
+							"type": "text"
+						},
+						{
+							"key": "acilis1",
+							"value": "9:00",
+							"type": "text"
+						},
+						{
+							"key": "kapanis1",
+							"value": "23:00",
+							"type": "text"
+						},
+						{
+							"key": "kapali1",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "gunler2",
+							"value": "Cumartesi",
+							"type": "text"
+						},
+						{
+							"key": "acilis2",
+							"value": "10:00",
+							"type": "text"
+						},
+						{
+							"key": "kapanis2",
+							"value": "21:00",
+							"type": "text"
+						},
+						{
+							"key": "kapali2",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar/",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mekan Listele",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Durum Kodu: 200\", function(){pm.response.to.have.status(200);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar?enlem=37.78111&boylam=30.5660341",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar"
+					],
+					"query": [
+						{
+							"key": "enlem",
+							"value": "37.78111"
+						},
+						{
+							"key": "boylam",
+							"value": "30.5660341"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mekan Güncelle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Durum Kodu: 200\", function(){pm.response.to.have.status(200);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ad",
+							"value": "Starbucks",
+							"type": "text"
+						},
+						{
+							"key": "adres",
+							"value": "İyaş Park AVM",
+							"type": "text"
+						},
+						{
+							"key": "imkanlar",
+							"value": "Kahve, Çay, Kek, Pasta",
+							"type": "text"
+						},
+						{
+							"key": "enlem",
+							"value": "37.781885",
+							"type": "text"
+						},
+						{
+							"key": "boylam",
+							"value": "30.566034",
+							"type": "text"
+						},
+						{
+							"key": "gunler1",
+							"value": "Pazartesi-Cuma",
+							"type": "text"
+						},
+						{
+							"key": "acilis1",
+							"value": "9:00",
+							"type": "text"
+						},
+						{
+							"key": "kapanis1",
+							"value": "23:00",
+							"type": "text"
+						},
+						{
+							"key": "kapali1",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "gunler2",
+							"value": "Cumartesi",
+							"type": "text"
+						},
+						{
+							"key": "acilis2",
+							"value": "10:00",
+							"type": "text"
+						},
+						{
+							"key": "kapanis2",
+							"value": "22:00",
+							"type": "text"
+						},
+						{
+							"key": "kapali2",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar/{{mekanid}}",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar",
+						"{{mekanid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Yorum Ekle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"yorumid\", jsonData._id);",
+							"pm.test(\"Durum Kodu: 201\", function(){pm.response.to.have.status(201);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "yorumYapan",
+							"value": "Seyit Onbaşı",
+							"type": "text"
+						},
+						{
+							"key": "puan",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "yorumMetni",
+							"value": "Bunun için mi vurdum ben Elizabeth'i?",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar/{{mekanid}}/yorumlar",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar",
+						"{{mekanid}}",
+						"yorumlar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Yorum Getir",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Durum Kodu: 200\", function(){pm.response.to.have.status(200);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar/{{mekanid}}/yorumlar/{{yorumid}}",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar",
+						"{{mekanid}}",
+						"yorumlar",
+						"{{yorumid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Yorum Güncelle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Durum Kodu: 200\", function(){pm.response.to.have.status(200);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "yorumYapan",
+							"value": "Ali Veli 4950",
+							"type": "text"
+						},
+						{
+							"key": "puan",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "yorumMetni",
+							"value": "Şahane bir mekan, herkese tavsiye ederim",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar/{{mekanid}}/yorumlar/{{yorumid}}",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar",
+						"{{mekanid}}",
+						"yorumlar",
+						"{{yorumid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Yorum Sil",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Durum Kodu: 204\", function(){pm.response.to.have.status(204);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar/{{mekanid}}/yorumlar/{{yorumid}}",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar",
+						"{{mekanid}}",
+						"yorumlar",
+						"{{yorumid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mekan Sil",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Durum Kodu: 204\", function(){pm.response.to.have.status(204);});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://yasinisayildirim1711012007.herokuapp.com/api/mekanlar/{{mekanid}}",
+					"protocol": "https",
+					"host": [
+						"yasinisayildirim1711012007",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"mekanlar",
+						"{{mekanid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

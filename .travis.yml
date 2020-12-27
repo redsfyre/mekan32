@@ -1,3 +1,14 @@
 language: node_js
 node_js:
  - "node"
+
+install:
+ - npm install newman
+
+before_script:
+ - node --version
+ - npm --version
+ - node_modules/.bin/newman --version
+
+script:
+ - node_modules/.bin/newman run tests/apiTest.postman_collection.json -e tests/Test.postman_environment.json
