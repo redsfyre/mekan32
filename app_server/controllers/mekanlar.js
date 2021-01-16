@@ -74,7 +74,7 @@ const anaSayfa = function(req, res, next) {
 
 var detaySayfasiOlustur = function(req, res, mekanDetaylari) {
   res.render('mekan-detay', { 
-    title : mekanDetaylari.ad,
+    baslik : mekanDetaylari.ad,
     sayfaBaslik : mekanDetaylari.ad,
     mekanBilgisi : mekanDetaylari,
     footer: footer
@@ -84,11 +84,11 @@ var detaySayfasiOlustur = function(req, res, mekanDetaylari) {
 var hataGoster = function(req, res, durum) {
   var baslik, icerik
   if (durum == 404) {
-    baslik = '404, Sayfa Bulunamadı!'
-    icerik = 'Aradığınız sayfayı bulamadık!'
+    baslik = '404, Sayfa Bulunamadı!';
+    icerik = 'Aradığınız sayfayı bulamadık!';
   } else {
-    baslik = durum + ' Bir şeyler ters gitti!'
-    icerik = 'Ters giden bir şey var!'
+    baslik = durum + ' Bir şeyler ters gitti!';
+    icerik = 'Ters giden bir şey var!';
   }
 
   res.status(durum);
