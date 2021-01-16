@@ -99,6 +99,28 @@ var hataGoster = function(req, res, durum) {
   });
 }
 
+var mekanBilgisiGetir = function(req, res, callback) {
+  istekSecenekleri = {
+    url : apiSecenekleri.sunucu + apiSecenekleri.apiYolu + req.params.mekanid,
+    method : 'GET',
+    json : {}
+  };
+
+  request(istekSecenekleri, function (hata, cevap, mekanDetaylari) {
+    var gelenMekan = mekanDetaylari;
+    if (cevap.statusCode == 200) {
+      gelenMekan.koordinatlar = {
+        enlem: mekanDetaylari.koordinatlar[0],
+        boylam: mekanDetaylari.koordinatlar[1],
+      };
+      detaySayfasiOlustur(req, res, gelenMekan);
+    } else {
+      hataGoster(req, res, cevap.statusCode);
+    }
+  });
+};
+
+
 var mekanBilgisi = function(req, res, callback) {
   istekSecenekleri = {
     url : apiSecenekleri.sunucu + apiSecenekleri.apiYolu + req.params.mekanid,
@@ -142,7 +164,7 @@ const yorumEkle = function(req, res) {
 }
 
 const yorumumuEkle = function(req, res) {
-  var gonderilenYorum, mekanid;
+  var istekSecekleri, gonderilenYorum, mekanid;
   mekanid = req.params.mekanid;
   gonderilenYorum = {
     yorumYapan: req.body.name,
