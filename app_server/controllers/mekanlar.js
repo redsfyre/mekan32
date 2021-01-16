@@ -99,7 +99,7 @@ var hataGoster = function(req, res, durum) {
   });
 }
 
-var mekanBilgisiGetir = function(req, res, callback) {
+var mekanBilgisi = function(req, res, callback) {
   istekSecenekleri = {
     url : apiSecenekleri.sunucu + apiSecenekleri.apiYolu + req.params.mekanid,
     method : 'GET',
@@ -113,7 +113,7 @@ var mekanBilgisiGetir = function(req, res, callback) {
         enlem: mekanDetaylari.koordinatlar[0],
         boylam: mekanDetaylari.koordinatlar[1],
       };
-      callback(req, res, gelenMekan);
+      detaySayfasiOlustur(req, res, gelenMekan);
     } else {
       hataGoster(req, res, cevap.statusCode);
     }
