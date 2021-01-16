@@ -106,20 +106,19 @@ var mekanBilgisiGetir = function(req, res, callback) {
     json : {}
   };
 
-  request(istekSecenekleri, function(hata, cevap, mekanDetaylari) {
+  request(istekSecenekleri, function (hata, cevap, mekanDetaylari) {
     var gelenMekan = mekanDetaylari;
-    if (cevap.statusCode != 200) {
-      hataGoster(req, res, cevap.statusCode);
-    } else {
-      // enlem ve boylam bir dizi şeklinde geliyor, bunu ayır
+    if (cevap.statusCode == 200) {
       gelenMekan.koordinatlar = {
         enlem: mekanDetaylari.koordinatlar[0],
-        boylam: mekanDetaylari.koordinatlar[1]
+        boylam: mekanDetaylari.koordinatlar[1],
       };
       callback(req, res, gelenMekan);
+    } else {
+      hataGoster(req, res, cevap.statusCode);
     }
   });
-}
+};
 
 const mekanBilgisi = function(req, res, callback) {
   mekanBilgisiGetir(req, res, function(req, res, cevap){
