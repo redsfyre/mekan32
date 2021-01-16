@@ -1,6 +1,6 @@
 var express = require("express");
 var request = require("postman-request");
-
+var footer = "Yasin İsa YILDIRIM 2020"
 var apiSecenekleri = {
   sunucu: "https://yasinisayildirim1711012007.herokuapp.com",
   apiYolu: "/api/mekanlar/",
@@ -38,6 +38,7 @@ var anasayfayiOlustur = function (req, res, cevap, mekanListesi) {
     mekanlar: mekanListesi,
     mesaj: mesaj,
     cevap: cevap,
+    footer: footer
   });
 };
 
@@ -68,12 +69,13 @@ var detaySayfasiOlustur = function (req, res, mekanDetaylari) {
     baslik: mekanDetaylari.ad,
     sayfaBaslik: mekanDetaylari.ad,
     mekanBilgisi: mekanDetaylari,
+    footer: footer
   });
 };
 
 var hataGoster = function (req, res, durum) {
   var baslik, icerik;
-  if ((durum = 404)) {
+  if (durum == 404) {
     baslik = "404, Sayfa Bulunamadı!";
     icerik = "Sanırım kaybolduk!";
   } else {
@@ -84,6 +86,7 @@ var hataGoster = function (req, res, durum) {
   res.render("hata", {
     baslik: baslik,
     icerik: icerik,
+    footer: footer
   });
 };
 
@@ -93,19 +96,19 @@ var mekanBilgisiGetir = function (req, res, callback) {
     method: "GET",
     json: {},
   };
-  request(istekSecenekleri, function (hata, cevap, mekanDetaylari) {
+  request(istekSecenekleri, function(hata, cevap, mekanDetaylari) {
     var gelenMekan = mekanDetaylari;
-    if (cevap.statusCode == 200) {
+    if (cevap.statusCode != 200) {
+      hataGoster(req, res, cevap.statusCode);
+    } else {
       gelenMekan.koordinatlar = {
         enlem: mekanDetaylari.koordinatlar[0],
-        boylam: mekanDetaylari.koordinatlar[1],
+        boylam: mekanDetaylari.koordinatlar[1]
       };
       callback(req, res, gelenMekan);
-    } else {
-      hataGoster(req, res, cevap.statusCode);
     }
   });
-};
+}
 
 const mekanBilgisi = function (req, res, callback) {
   mekanBilgisiGetir(req, res, function (req, res, cevap) {
