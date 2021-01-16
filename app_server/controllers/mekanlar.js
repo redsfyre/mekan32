@@ -120,28 +120,6 @@ var mekanBilgisiGetir = function(req, res, callback) {
   });
 };
 
-
-var mekanBilgisi = function(req, res, callback) {
-  istekSecenekleri = {
-    url : apiSecenekleri.sunucu + apiSecenekleri.apiYolu + req.params.mekanid,
-    method : 'GET',
-    json : {}
-  };
-
-  request(istekSecenekleri, function (hata, cevap, mekanDetaylari) {
-    var gelenMekan = mekanDetaylari;
-    if (cevap.statusCode == 200) {
-      gelenMekan.koordinatlar = {
-        enlem: mekanDetaylari.koordinatlar[0],
-        boylam: mekanDetaylari.koordinatlar[1],
-      };
-      detaySayfasiOlustur(req, res, gelenMekan);
-    } else {
-      hataGoster(req, res, cevap.statusCode);
-    }
-  });
-};
-
 const mekanBilgisi = function(req, res, callback) {
   mekanBilgisiGetir(req, res, function(req, res, cevap){
     detaySayfasiOlustur(req, res, cevap);
