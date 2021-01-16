@@ -30,7 +30,7 @@ var anasayfaOlustur = function(req, res, cevap, mekanListesi) {
   }
 
   res.render('mekanlar-liste', { 
-    title : 'Mekan Bul',
+    baslik : 'Mekan32',
     sayfaBaslik : {
       siteAd : 'Mekan 32',
       aciklama : 'Isparta civarındaki mekanları keşfedin!'
@@ -92,7 +92,7 @@ var hataGoster = function(req, res, durum) {
   }
 
   res.status(durum);
-  res.render('error', {
+  res.render('hata', {
     baslik: baslik,
     icerik: icerik,
     footer: footer
@@ -129,7 +129,7 @@ const mekanBilgisi = function(req, res, callback) {
 
 var yorumSayfasiOlustur = function(req, res, mekanBilgisi) {
   res.render('yorum-ekle', { 
-    title : mekanBilgisi.ad + ' Mekanına Yorum Ekle',
+    baslik : mekanBilgisi.ad + ' Mekanına Yorum Ekle',
     sayfaBaslik : mekanBilgisi.ad + ' Mekanına Yorum Ekle',
     hata : req.query.hata,
     footer : footer
