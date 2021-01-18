@@ -73,7 +73,7 @@ var detaySayfasiOlustur = function (req, res, mekanDetaylari) {
 
 var hataGoster = function (req, res, durum) {
   var baslik, icerik;
-  if ((durum = 404)) {
+  if ((durum == 404)) {
     baslik = "404, Sayfa Bulunamadı!";
     icerik = "Sanırım kaybolduk!";
   } else {
