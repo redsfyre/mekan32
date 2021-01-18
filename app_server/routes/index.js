@@ -9,4 +9,6 @@ router.get("/mekan/:mekanid", ctrlMekanlar.mekanBilgisi);
 router.get("/mekan/:mekanid/yorum/yeni", ctrlMekanlar.yorumEkle);
 router.post("/mekan/:mekanid/yorum/yeni", ctrlMekanlar.yorumumuEkle);
 
+router.get('/hakkinda', ctrlDigerleri.hakkinda);
+
 module.exports = router;
