@@ -21,7 +21,7 @@ var mesafeyiFormatla = function (mesafe) {
 var anasayfayiOlustur = function (req, res, cevap, mekanListesi) {
   var mesaj;
   if (!(mekanListesi instanceof Array)) {
-    mesaj = "API HATASI: Birşeyler Ters Gitti";
+    mesaj = "API HATASI: Bir şeyler Ters Gitti";
     mekanListesi = [];
   } else {
     if (!mekanListesi.length) {
@@ -81,7 +81,7 @@ var hataGoster = function (req, res, durum) {
     icerik = "Üzgünüm ama bir şeyler fena halde bozuldu";
   }
   res.status(durum);
-  res.render("hata", {
+  res.render("error", {
     baslik: baslik,
     icerik: icerik,
   });
